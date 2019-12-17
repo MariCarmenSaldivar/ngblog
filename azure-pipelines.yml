@@ -30,4 +30,4 @@ steps:
   inputs:
     SourceFolder: 'ReleaseManagement'
     Contents: '**'
-    TargetFolder: 'provisioning'
+    TargetFolder: '$(build.ArtifactStagingDirectory)/provisioning'
