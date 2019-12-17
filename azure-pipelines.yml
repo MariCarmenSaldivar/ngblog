@@ -26,10 +26,16 @@ steps:
     SourceFolder: 'ReleaseManagement'
     Contents: '**'
     TargetFolder: '$(Pipeline.Workspace)/provisioning'
-  
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'dist'
+    Contents: '**'
+    TargetFolder: '$(Pipeline.Workspace)/dist'
+
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)'
+    targetPath: 'dist'
     artifact: 'ngblog'
     publishLocation: 'pipeline'
 
