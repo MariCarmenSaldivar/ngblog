@@ -20,6 +20,7 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
+  workingDirectory: '$(Build.ArtifactStagingDirectory)'
 
 - task: CopyFiles@2
   inputs:
@@ -29,7 +30,7 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'dist'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/dist'
     ArtifactName: 'dist/ngblog'
   displayName: 'Publish artifacts: dist'
 
