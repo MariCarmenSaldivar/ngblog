@@ -25,11 +25,11 @@ steps:
   inputs:
     SourceFolder: 'ReleaseManagement'
     Contents: '**'
-    TargetFolder: 'dist'
-    
-- task: PublishBuildArtifacts@1
+    TargetFolder: '$(Pipeline.Workspace)/provisioning'
+  
+- task: PublishPipelineArtifact@1
   inputs:
-    PathtoPublish: 'dist'
-    ArtifactName: 'dist/ngblog'
-  displayName: 'Publish artifacts: dist'
+    targetPath: '$(Pipeline.Workspace)'
+    artifact: 'ngblog'
+    publishLocation: 'pipeline'
 
