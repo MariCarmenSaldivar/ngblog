@@ -20,7 +20,6 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-  workingDirectory: '$(Build.ArtifactStagingDirectory)'
 
 - task: CopyFiles@2
   inputs:
