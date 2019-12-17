@@ -20,14 +20,16 @@ steps:
     npm install
     ng build --prod
   displayName: 'npm install and build'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'dist'
-    ArtifactName: 'dist/ngblog'
-  displayName: 'Publish artifacts: dist'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'ReleaseManagement'
     Contents: '**'
     TargetFolder: '$(build.ArtifactStagingDirectory)/provisioning'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'dist'
+    ArtifactName: 'dist/ngblog'
+  displayName: 'Publish artifacts: dist'
+
