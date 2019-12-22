@@ -21,6 +21,12 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
+- script: npm test
+  displayName: 'npm test'
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/TEST-*.xml'
 - task: CopyFiles@2
   inputs:
     SourceFolder: 'ReleaseManagement'
