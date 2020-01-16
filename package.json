@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e --protractor-config=e2e/protractor.conf.js",
     "clean": "webdriver-manager clean",
+    "webdriver": "node ./node_modules/protractor/bin/webdriver-manager update",
     "e2e2": "webdrier-manager update --standalone false --gecko false --versions.chrome stable",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless"
   },
