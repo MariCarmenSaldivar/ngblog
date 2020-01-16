@@ -7,8 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "e2e2": "ng e2e --protractor-config=e2e/protractor.conf.js",
+    "e2e": "ng e2e --protractor-config=e2e/protractor.conf.js --webdriver-update=false",
+    "clean": "webdriver-manager clean",
+    "e2e2": "webdriver-manager update --standalone false --gecko false --versions.chrome 79",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless"
   },
   "private": true,
