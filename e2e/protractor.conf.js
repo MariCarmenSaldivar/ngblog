@@ -30,6 +30,13 @@ exports.config = {
     require('ts-node').register({
       project: require('path').join(__dirname, './tsconfig.json')
     });
+    var jasmineReporters = require('jasmine-reporters');
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+    jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+      consolidateAll: true,
+      savePath: '',
+      filePrefix: 'TEST-reportXMLoutput'
+  }));
+  
   }
 };
