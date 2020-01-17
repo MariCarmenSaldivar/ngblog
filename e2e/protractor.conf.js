@@ -34,7 +34,7 @@ exports.config = {
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
     jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
       consolidateAll: true,
-      savePath: '',
+      savePath: 'test',
       filePrefix: 'TEST-reportXMLoutput'
   }));
   
