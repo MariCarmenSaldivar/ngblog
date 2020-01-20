@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="0" errors="0" failures="1" tests="1" time="5.895">
+ <testsuite name="workspace-project App" timestamp="2020-01-20T17:23:45" hostname="localhost" time="5.895" errors="0" tests="1" skipped="0" disabled="0" failures="1">
+  <testcase classname="workspace-project App" name="TC_000 Navigate" time="5.893">
+   <failure type="toContain" message="Expected [ Entry({ level: WARNING, message: &apos;http://localhost:4200/vendor.js 115655:20 &quot;@ngrx/store: runtime checks are currently opt-in but will be the default in the next major version with the possibility to opt-out, see https://ngrx.io/guide/migration/v8 for more information.&quot;&apos;, timestamp: 1579559027273, type: &apos;&apos; }), Entry({ level: WARNING, message: &apos;http://localhost:4200/vendor.js 176787 WebSocket connection to &apos;ws://localhost:4200/sockjs-node/416/swmv1l3c/websocket&apos; failed: WebSocket is closed before the connection is established.&apos;, timestamp: 1579559029573, type: &apos;&apos; }), Entry({ level: SEVERE, message: &apos;https://brock-bos-api-dev.azurewebsites.net/api/Customer?email=alejandro.donan@brockgroup.com - Failed to load resource: the server responded with a status of 404 (Not Found)&apos;, timestamp: 1579559030186, type: &apos;&apos; }), Entry({ level: SEVERE, message: &apos;http://localhost:4200/vendor.js 52956:40 &quot;ERROR&quot; HttpErrorResponse&apos;, timestamp: 1579559030187, type: &apos;&apos; }) ] not to contain &lt;jasmine.objectContaining(Object({ level: SEVERE }))&gt;."><![CDATA[Error: Failed expectation
+    at Object.<anonymous> (C:\Users\maric\Documents\repos\Brock.BOS.Web\e2e\src\app.e2e-spec.ts:26:22)
+    at step (C:\Users\maric\Documents\repos\Brock.BOS.Web\node_modules\tslib\tslib.js:136:27)
+    at Object.next (C:\Users\maric\Documents\repos\Brock.BOS.Web\node_modules\tslib\tslib.js:117:57)
+    at fulfilled (C:\Users\maric\Documents\repos\Brock.BOS.Web\node_modules\tslib\tslib.js:107:62)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+</testsuites>
