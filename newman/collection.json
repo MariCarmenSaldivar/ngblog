@@ -1,0 +1,1178 @@
+{
+	"info": {
+		"_postman_id": "0d048140-c197-415a-85d2-b73f7c3973dd",
+		"name": "MaryCarmen Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auhorization Copy",
+			"item": [
+				{
+					"name": "OAuth 2.0 ROPC",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac207091-1337-4d82-ba36-631d78c5e816",
+								"exec": [
+									"var body = pm.response.json()",
+									"pm.environment.set(\"token\",body.access_token);",
+									"//pm.globals.set(\"token\",body.access_token);",
+									"",
+									"pm.test(\"Response time is less than 10s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.have.status(200);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"value": "{{token}}",
+									"type": "string"
+								},
+								{
+									"key": "tokenType",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "7d06bd87-6061-4f5d-81f0-115768728856"
+								},
+								{
+									"key": "scope",
+									"value": "api://7d06bd87-6061-4f5d-81f0-115768728856/user_impersonation"
+								},
+								{
+									"key": "client_secret",
+									"value": "Q=ep_h.]RqBsvXQl3AhstJQfIA4ytk93"
+								},
+								{
+									"key": "username",
+									"value": "jaly.sandoval@brockgroup.com",
+									"description": "User's email address"
+								},
+								{
+									"key": "password",
+									"value": "Tigres6!",
+									"description": "The user's password. "
+								},
+								{
+									"key": "grant_type",
+									"value": "password"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://login.microsoftonline.com/ff348a22-fd20-4491-af39-832e7b76633f/oauth2/v2.0/token",
+							"protocol": "https",
+							"host": [
+								"login",
+								"microsoftonline",
+								"com"
+							],
+							"path": [
+								"ff348a22-fd20-4491-af39-832e7b76633f",
+								"oauth2",
+								"v2.0",
+								"token"
+							]
+						},
+						"description": "[Documentation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc)"
+					},
+					"response": [
+						{
+							"name": "OAuth 2.0 ROPC",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "6731de76-14a6-49ae-97bc-6eba6914391e"
+										},
+										{
+											"key": "scope",
+											"value": "user.read openid profile offline_access"
+										},
+										{
+											"key": "client_secret",
+											"value": "JqQX2PNo9bpM0uEihUPzyrh"
+										},
+										{
+											"key": "username",
+											"value": "User@myTenant.com"
+										},
+										{
+											"key": "password",
+											"value": "S3cretP4ssword"
+										},
+										{
+											"key": "grant_type",
+											"value": "password"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://login.microsoftonline.com/organizations/oauth2/v2.0/token",
+									"protocol": "https",
+									"host": [
+										"login",
+										"microsoftonline",
+										"com"
+									],
+									"path": [
+										"organizations",
+										"oauth2",
+										"v2.0",
+										"token"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Expires",
+									"value": "-1"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "x-ms-request-id",
+									"value": "6c1e4c28-4f1a-4b1f-940f-01e8f9d04c00"
+								},
+								{
+									"key": "P3P",
+									"value": "CP=\"DSP CUR OTPi IND OTRi ONL FIN\""
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "fpc=AoyXs_IRnyBApfFwr79NfqrdhRF8AgAAANdtPdQOAAAA; expires=Wed, 08-May-2019 16:29:48 GMT; path=/; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "x-ms-gateway-slice=corp; path=/; secure; HttpOnly"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "stsservicecookie=ests; path=/; secure; HttpOnly"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 08 Apr 2019 16:29:47 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3988"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token_type\": \"Bearer\",\n    \"scope\": \"Mail.Read openid User.Read profile email\",\n    \"expires_in\": 3600,\n    \"ext_expires_in\": 3600,\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFEQ29NcGpKWHJ4VHE5Vkc5dGUtN0ZYbEw3eXBmalJYLXp5T2JZSVU3NnVBbWQxcXpUa1BYOXcyU0tnc2hQc3ZJY2Y0OXNpQ1l1X0pSWEdoNEVTUVh4MlpOMUUwbnRzM2N5c1NnZFJxaVdiM0NBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiTi1sQzBuLTlEQUxxd2h1SFluSFE2M0dlQ1hjIiwia2lkIjoiTi1sQzBuLTlEQUxxd2h1SFluSFE2M0dlQ1hjIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mYTE1ZDY5My1lOWM3LTQ0NjAtYTc0My0yOWYyOTU2ZmQ0MjkvIiwiaWF0IjoxNTU0NzQwNjg4LCJuYmYiOjE1NTQ3NDA2ODgsImV4cCI6MTU1NDc0NDU4OCwiYWNjdCI6MCwiYWNyIjoiMSIsImFpbyI6IkFTUUEyLzhMQUFBQTVyUlBCRVdvU29tdVFKVWRMRlBXajd0NXFDbDdwWjczSXlEZmpZaDBBPSIsImFtciI6WyJwd2QiXSwiYXBwX2Rpc3BsYXluYW1lIjoiVHV0b3JpYWwgU2FtcGxlIEFwcCIsImFwcGlkIjoiNjczMWRlNzYtMTRhNi00OWFlLTk3YmMtNmViYTY5MTQzOTFlIiwiYXBwaWRhY3IiOiIxIiwiZmFtaWx5X25hbWUiOiJsbmFtZSIsImdpdmVuX25hbWUiOiJmbmFtZSIsImlwYWRkciI6IjEzMS4xMDcuMTc0LjE3OCIsIm5hbWUiOiJmbmFtZSBsbmFtZSIsIm9pZCI6ImUzZWI2NDJhLWYxYTEtNGU3Yi1iYjRhLWRmNGM0YzJhMmYxMiIsInBsYXRmIjoiMTQiLCJwdWlkIjoiMTAwMzNGRkZBQTREREM1RiIsInNjcCI6Ik1haWwuUmVhZCBvcGVuaWQgVXNlci5SZWFkIHByb2ZpbGUgZW1haWwiLCJzdWIiOiJqYTVrY2p5OUtlVjhRQUg4d3NPQWlBS3lXTmpjeVJ5Um40WnJwei1LLV9NIiwidGlkIjoiZmExNWQ2OTItZTljNy00NDYwLWE3NDMtMjlmMjk1NmZkNDI5IiwidW5pcXVlX25hbWUiOiJ1c2VyQG15dGVuYW50LmNvbSIsInVwbiI6InVzZXJAbXl0ZW5hbnQuY29tIiwidXRpIjoiS0V3ZWJCcFBIMHVVRHdIby1kQk1BQSIsInZlciI6IjEuMCIsIndpZHMiOlsiNjJlOTAzOTQtNjlmNS00MjM3LTkxOTAtMDEyMTc3MTQ1ZTEwIl19.QQx7ZAyfUpefrLWI{snip}\",\n    \"refresh_token\": \"OAQABAAAAAADCoMpjJXrxTq9VG9te-7FXOzouRYFi3yjwaNT_G4fkF7iF3T2WjdHE5GSr0jMKKE0_wvVq3RcXi3HDw_QaQaqzwlAvxOiU_KpGvehZ3tt8apuz7057nsvHEp2cdLZHm4PxQGjIRK2bqDaKalRR92JvlF2hI0CH4seBzjKRVWcaWUiNG12jsh8AM1aNOu6mdNkvnKy1sQbfZOkiFd{snip}\",\n    \"id_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik4tbEMwbi05REFMcXdodUhZbkhRNjNHZUNYYyJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vZmExNWQ2OTMtZTljNy00NDYwLWE3NDMtMjlmMjk1NmZkNDI5L3YyLjAiLCJpYXQiOjE1NTQ3NDA2ODgsIm5iZiI6MTU1NDc0MDY4OCwiZXhwIjoxNTU0NzQ0NTg4LCJhaW8iOiJBVFFBeS84TEFBQUEzV1NRSkQ5Tmp3T1Bkd1RmQWh1Rk9lNkg0S2lPby9UZnhlY2ZyV0VRMnBWNUNLbnhFYTNCSHM2WHVnQ3psIiwibmFtZSI6ImZuYW1lIGxuYW1lIiwib2lkIjoiZTNlYjY0MmEtZjFhMS00ZTdiLWJiNGEtZGY0YzRjMmEyZjEyIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiVXNlckBteVRlbmFudC5jb20iLCJzdWIiOiJ4QXhSV1BvRFhLbmtnSkppX2Y5M2ZqOFdBQXh3N0F3ODg0WS1nLWt4NmpVIiwidGlkIjoiZmExNWQ2OTMtZTljNy00NDYwLWE3NDMtMjlmMjk1NmZkNDI5IiwidXRpIjoiS0V3ZWJCcFBIMHVVRHdIby1kQk1BQSIsInZlciI6IjIuMCJ9.Ypvbm8GdNefv-zyVZpLbyB{snip}\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Customer(s) Copy",
+			"item": [
+				{
+					"name": "Get Customer(s) from infor.",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4325e821-7ec6-4d62-8183-ceab2e599186",
+								"exec": [
+									"var body = pm.response.json();",
+									"var customerId = body.Result[Math.floor(body.Count * Math.random())].CustomerId;",
+									"//var customerId = customer.CustomerId;",
+									"console.log(customerId)",
+									"pm.environment.set(\"Customer_Id\", customerId);",
+									"",
+									"",
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.response.to.have.status(200);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									" ",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}customer",
+							"host": [
+								"{{base_url}}customer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Get Customers from Infor",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "26e6074d-6abc-418e-98c4-ba2a55f123b3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ffa2d10e-6343-4fc1-b6c4-b867dd623cd7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Contract(s) Copy",
+			"item": [
+				{
+					"name": "Gets all contracts for given customer Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bd89b761-b094-4c65-a0a8-7bcc265b1df9",
+								"exec": [
+									"var body = pm.response.json();",
+									"if (body.Result === null || body.Result.length === 0){",
+									"    console.log(\"Get a new customer\");",
+									"    postman.setNextRequest(\"Get Customer(s) from infor.\");",
+									"    return;",
+									"}",
+									"var contractId = body.Result[Math.floor(body.Count * Math.random())].ContractId;",
+									"// var contractId = contract.ContractId;",
+									"// console.log(contractId)",
+									"pm.environment.set(\"Contract_Id\", contractId);",
+									"",
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.expect(pm.response.code).to.be.oneOf ([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract belongs to selected customer \", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.CustomerId).to.eql();",
+									"    //Validate status of contract 1 or 2 ",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b28c471e-e936-45cc-b584-3a269a22799b",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Gets all contracts for given customer Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}customers/:{customerId}/contracts/",
+									"host": [
+										"{{base_url}}customers"
+									],
+									"path": [
+										":{customerId}",
+										"contracts",
+										""
+									],
+									"variable": [
+										{
+											"key": "{customerId}",
+											"value": "975430"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Request-Context",
+									"value": "appId=cid-v1:35f07536-e61f-4071-af45-fbe6f5a5a522"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "ASP.NET"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Feb 2020 18:03:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Message\": null,\n    \"Result\": [\n        {\n            \"ContractId\": 3,\n            \"ContractNumber\": \"auto test\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"test1\",\n            \"ProjectName\": \"prject test\",\n            \"ContractCat\": \"contract category\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-10T08:30:27.931\",\n            \"ExpirationDate\": \"2020-01-10T08:30:27.931\",\n            \"Status\": 1,\n            \"Reconcilable\": \"Yes\",\n            \"OCIP\": \"Yes\",\n            \"PayTerms\": \"15-30 days\",\n            \"Evergreen\": true,\n            \"Currency\": \"100\",\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-09T20:30:52.9936446\",\n            \"UserUpdated\": \"alejandro.donan@brockgroup.com\",\n            \"DateUpdated\": \"2020-01-22T19:25:55.1214845\"\n        },\n        {\n            \"ContractId\": 4,\n            \"ContractNumber\": \"test 2 \",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"test 2\",\n            \"ProjectName\": \"project 2\",\n            \"ContractCat\": \"contract category\",\n            \"Amendments\": 1,\n            \"EffectiveDate\": \"2020-01-10T21:16:33.478\",\n            \"ExpirationDate\": \"2020-01-10T21:16:33.478\",\n            \"Status\": 1,\n            \"Reconcilable\": \"Yes\",\n            \"OCIP\": \"Yes\",\n            \"PayTerms\": \"0-15 days\",\n            \"Evergreen\": true,\n            \"Currency\": \"456789\",\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-10T21:17:06.2078271\",\n            \"UserUpdated\": \"Jaly.Sandoval@brockgroup.com\",\n            \"DateUpdated\": \"2020-02-10T17:40:43.4741344\"\n        },\n        {\n            \"ContractId\": 10,\n            \"ContractNumber\": \"Front development\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"DO NOT TOUCH, REMOVE, ETC\",\n            \"ProjectName\": \"DO NOT TOUCH, REMOVE, ETC\",\n            \"ContractCat\": \"DO NOT TOUCH, REMOVE, ETC\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-14T00:08:39.483\",\n            \"ExpirationDate\": \"2020-01-14T00:08:39.483\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": true,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-13T18:09:22.4091783\",\n            \"UserUpdated\": \"alejandro.donan@brockgroup.com\",\n            \"DateUpdated\": \"2020-01-28T16:54:04.5478375\"\n        },\n        {\n            \"ContractId\": 11,\n            \"ContractNumber\": \"auto\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"Test\",\n            \"ProjectName\": \"Test\",\n            \"ContractCat\": \"Test\",\n            \"Amendments\": 6,\n            \"EffectiveDate\": \"2020-01-13T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-13T18:12:39.248\",\n            \"Status\": 2,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-13T18:15:38.967629\",\n            \"UserUpdated\": null,\n            \"DateUpdated\": null\n        },\n        {\n            \"ContractId\": 13,\n            \"ContractNumber\": \"abtest\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"abfacility\",\n            \"ProjectName\": \"abproject\",\n            \"ContractCat\": \"abcategory\",\n            \"Amendments\": 6,\n            \"EffectiveDate\": \"2020-01-13T18:22:20.143\",\n            \"ExpirationDate\": \"2020-01-13T18:22:20.143\",\n            \"Status\": 2,\n            \"Reconcilable\": \"Yes\",\n            \"OCIP\": \"Yes\",\n            \"PayTerms\": \"15-30 days\",\n            \"Evergreen\": false,\n            \"Currency\": \"8172939\",\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-13T18:22:28.2273725\",\n            \"UserUpdated\": \"alejandro.donan@brockgroup.com\",\n            \"DateUpdated\": \"2020-02-05T02:55:04.8987705\"\n        },\n        {\n            \"ContractId\": 14,\n            \"ContractNumber\": \"JalyTest\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"testname\",\n            \"ProjectName\": \"NO LO USEN\",\n            \"ContractCat\": \"Pruebas ONLY\",\n            \"Amendments\": 6,\n            \"EffectiveDate\": \"2020-01-14T00:34:35.501\",\n            \"ExpirationDate\": \"2020-02-01T00:34:35.501\",\n            \"Status\": 1,\n            \"Reconcilable\": \"Yes\",\n            \"OCIP\": \"Yes\",\n            \"PayTerms\": \"15-30 days\",\n            \"Evergreen\": false,\n            \"Currency\": \"182764\",\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-13T18:35:12.2844273\",\n            \"UserUpdated\": \"alejandro.donan@brockgroup.com\",\n            \"DateUpdated\": \"2020-01-17T15:52:38.2333668\"\n        },\n        {\n            \"ContractId\": 102,\n            \"ContractNumber\": \"FebrasTest\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"Testing99\",\n            \"ProjectName\": \"Jalyfebras\",\n            \"ContractCat\": \"Testing07\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-22T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-30T10:00:00\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-23T17:24:12.3150424\",\n            \"UserUpdated\": \"Jaly.Sandoval@brockgroup.com\",\n            \"DateUpdated\": \"2020-02-10T16:41:25.4473666\"\n        },\n        {\n            \"ContractId\": 103,\n            \"ContractNumber\": \"CepillinContract\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"Testing07\",\n            \"ProjectName\": \"Jalyfrin\",\n            \"ContractCat\": \"Jaly\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-22T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-30T10:00:00\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-23T17:25:21.9177938\",\n            \"UserUpdated\": \"alejandro.donan@brockgroup.com\",\n            \"DateUpdated\": \"2020-01-23T17:26:07.5465564\"\n        },\n        {\n            \"ContractId\": 105,\n            \"ContractNumber\": \"Febrilin\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"TestingAPI\",\n            \"ProjectName\": \"Jalyfrinztegarl\",\n            \"ContractCat\": \"JalyFeb\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-22T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-30T10:00:00\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-31T16:55:53.069354\",\n            \"UserUpdated\": null,\n            \"DateUpdated\": null\n        },\n        {\n            \"ContractId\": 106,\n            \"ContractNumber\": \"BtrockContract\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"TestiingCris\",\n            \"ProjectName\": \"BrockGrup\",\n            \"ContractCat\": \"Brock\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-22T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-30T10:00:00\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-31T16:57:29.3585803\",\n            \"UserUpdated\": \"alejandro.donan@brockgroup.com\",\n            \"DateUpdated\": \"2020-01-31T17:18:01.2865094\"\n        },\n        {\n            \"ContractId\": 107,\n            \"ContractNumber\": \"17283649\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"TestiingCris\",\n            \"ProjectName\": \"Pat Mahomes\",\n            \"ContractCat\": \"Brock\",\n            \"Amendments\": 5,\n            \"EffectiveDate\": \"2020-01-22T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-30T10:00:00\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-31T16:58:07.6306077\",\n            \"UserUpdated\": \"alejandro.donan@brockgroup.com\",\n            \"DateUpdated\": \"2020-01-31T17:18:33.239457\"\n        },\n        {\n            \"ContractId\": 108,\n            \"ContractNumber\": \"Febrilin\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"TestingAPI\",\n            \"ProjectName\": \"Febritox\",\n            \"ContractCat\": \"Febrax\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-22T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-30T10:00:00\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-01-31T20:36:26.5625723\",\n            \"UserUpdated\": null,\n            \"DateUpdated\": null\n        },\n        {\n            \"ContractId\": 121,\n            \"ContractNumber\": \"1313\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"123131\",\n            \"ProjectName\": \"123131\",\n            \"ContractCat\": \"11231\",\n            \"Amendments\": 1,\n            \"EffectiveDate\": \"2020-02-06T14:47:43.665\",\n            \"ExpirationDate\": \"2020-02-06T14:47:43.666\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": true,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-02-06T14:47:56.1956348\",\n            \"UserUpdated\": null,\n            \"DateUpdated\": null\n        },\n        {\n            \"ContractId\": 122,\n            \"ContractNumber\": \"gustavo auth test\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"auth test\",\n            \"ProjectName\": \"authentication\",\n            \"ContractCat\": \"auth\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-02-06T14:48:21.947\",\n            \"ExpirationDate\": \"2020-04-16T13:48:21.947\",\n            \"Status\": 2,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"alejandro.donan@brockgroup.com\",\n            \"DateCreated\": \"2020-02-06T14:48:52.8894135\",\n            \"UserUpdated\": null,\n            \"DateUpdated\": null\n        },\n        {\n            \"ContractId\": 124,\n            \"ContractNumber\": \"FebrasTest14\",\n            \"CustomerId\": 975430,\n            \"Customer\": null,\n            \"Company\": null,\n            \"Facility\": \"Testing20\",\n            \"ProjectName\": \"Jalyfebras\",\n            \"ContractCat\": \"Testing07\",\n            \"Amendments\": 2,\n            \"EffectiveDate\": \"2020-01-22T18:12:39.248\",\n            \"ExpirationDate\": \"2020-01-30T10:00:00\",\n            \"Status\": 1,\n            \"Reconcilable\": null,\n            \"OCIP\": null,\n            \"PayTerms\": null,\n            \"Evergreen\": false,\n            \"Currency\": null,\n            \"UserCreated\": \"Jaly.Sandoval@brockgroup.com\",\n            \"DateCreated\": \"2020-02-10T16:39:53.1528053\",\n            \"UserUpdated\": \"Jaly.Sandoval@brockgroup.com\",\n            \"DateUpdated\": \"2020-02-10T16:42:07.2149679\"\n        }\n    ],\n    \"Count\": 15\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a new Contract",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "64c88f99-abcb-457e-81d0-0ae7fdcd82b3",
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract gets created successfully\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.DateCreated).not.eql(null);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "79bb8fea-5f99-44c9-acdf-c8fb4ac9dc0a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ContractId\": 0,\r\n\t\"ContractNumber\": \"172635\",\r\n\t\"CustomerId\": {{Customer_Id}},\r\n\t\"Customer\": null,\r\n\t\"Company\": null,\r\n\t\"Facility\": \"Test\",\r\n\t\"ProjectName\": \"TestingAPI\",\r\n\t\"ContractCat\": \"Test123\",\r\n\t\"Amendments\": 2,\r\n\t\"EffectiveDate\": \"2020-01-22T18:12:39.248\",\r\n\t\"ExpirationDate\": \"2020-01-30T10:00:00.000\",\r\n\t\"Status\": 1,\r\n\t\"Reconcilable\": null,\r\n\t\"OCIP\": null,\r\n\t\"PayTerms\": null,\r\n\t\"Evergreen\": false,\r\n\t\"Currency\": null,\r\n\t\"UserCreated\": \"alejandro.donan@brockgroup.com\",\r\n\t\"DateCreated\": \"2020-01-22T21:17:06.2078271\",\r\n\t\"UserUpdated\": null,\r\n\t\"DateUpdated\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gets a contract based on given Contract Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "85f528b2-b7ad-47a9-b4b8-b2337c00fe57",
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"Response must be valid and have a body\", function () {",
+									"     pm.expect(pm.response.code).to.be.oneOf ([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract status should be In progress or Inactive\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.Status).to.be.oneOf([1,3]); ",
+									"    //Validate status of contract 1 (In progress) or 3 (Inactive)",
+									"});",
+									"",
+									"pm.test(\"Contract id response match with id params\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.ContractId).to.be.eql(pm.environment.get(\"Contract_Id\")); ",
+									"    //Validate status of contract 1 (In progress) or 3 (Inactive)",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts/{{Contract_Id}}",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts",
+								"{{Contract_Id}}"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates a contract based on given Contract Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5f775690-6f4b-4825-a09e-c79b8dcde81c",
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract gets updated successfully\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.DateCreated).not.eql(null);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ContractId\": {{Contract_Id}},\r\n\t\"ContractNumber\": \"FebrasTest14\",\r\n\t\"CustomerId\": {{Customer_Id}},\r\n\t\"Customer\": null,\r\n\t\"Company\": null,\r\n\t\"Facility\": \"Testing20\",\r\n\t\"ProjectName\": \"Jalyfebras\",\r\n\t\"ContractCat\": \"Testing07\",\r\n\t\"Amendments\": 2,\r\n\t\"EffectiveDate\": \"2020-01-22T18:12:39.248\",\r\n\t\"ExpirationDate\": \"2020-01-30T10:00:00.000\",\r\n\t\"Status\": 1,\r\n\t\"Reconcilable\": null,\r\n\t\"OCIP\": null,\r\n\t\"PayTerms\": null,\r\n\t\"Evergreen\": false,\r\n\t\"Currency\": null,\r\n\t\"UserCreated\": \"alejandro.donan@brockgroup.com\",\r\n\t\"DateCreated\": \"2020-01-22T21:17:06.2078271\",\r\n\t\"UserUpdated\": null,\r\n\t\"DateUpdated\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts/{{Contract_Id}}",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts",
+								"{{Contract_Id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletes a contract based on given Contract Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "099c85b4-6c2e-4bd0-887f-2a4979d4b166",
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract gets deleted successfully\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.DateCreated).not.eql(null);",
+									"});",
+									"",
+									"//pm.test(\"Posting projects response fields validation\", function () {",
+									"//    var jsonData = pm.response.json();",
+									"//    pm.expect(jsonData.Result[0].Number).to.eql(\"33\");",
+									"//    pm.expect(jsonData.Result[0].Customer).to.eql(\"Exxon\");",
+									"//    pm.expect(jsonData.Result[0].Year).to.eql(19);",
+									"//    pm.expect(jsonData.Result[0].Site).to.eql(\"MTO\");",
+									"//    pm.expect(jsonData.Result[0].BusinessGroup).to.eql(\"Ref\");",
+									"//    pm.expect(jsonData.Result[0].ContractType).to.eql(\"T&M\");",
+									"//    pm.expect(jsonData.Result[0].CraftService).to.eql(\"Asbestos\");",
+									"//    pm.expect(jsonData.Result[0].Status).to.eql(\"Open\");",
+									"//    pm.expect(jsonData.Result[0].WorkType).to.eql(\"CN capital/New Construction\");",
+									"//    pm.expect(jsonData.Result[0].IsOpen).to.eql(true);",
+									"    //This asertion(s) validates each value of Json response",
+									"    ",
+									"//});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"ContractId\": {{Contract_Id}},\r\n\t\"ContractNumber\": \"FebrasTest14\",\r\n\t\"CustomerId\": {{Customer_Id}},\r\n\t\"Customer\": null,\r\n\t\"Company\": null,\r\n\t\"Facility\": \"Testing20\",\r\n\t\"ProjectName\": \"Jalyfebras\",\r\n\t\"ContractCat\": \"Testing07\",\r\n\t\"Amendments\": 2,\r\n\t\"EffectiveDate\": \"2020-01-22T18:12:39.248\",\r\n\t\"ExpirationDate\": \"2020-01-30T10:00:00.000\",\r\n\t\"Status\": 1,\r\n\t\"Reconcilable\": null,\r\n\t\"OCIP\": null,\r\n\t\"PayTerms\": null,\r\n\t\"Evergreen\": false,\r\n\t\"Currency\": null,\r\n\t\"UserCreated\": \"alejandro.donan@brockgroup.com\",\r\n\t\"DateCreated\": \"2020-01-22T21:17:06.2078271\",\r\n\t\"UserUpdated\": null,\r\n\t\"DateUpdated\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}customers/{{Contract_Id}}/contracts/{{Contract_Id}}",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Contract_Id}}",
+								"contracts",
+								"{{Contract_Id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhsQzBSMTJza3hOWjFXUXdtak9GXzZ0X3RERSIsImtpZCI6IkhsQzBSMTJza3hOWjFXUXdtak9GXzZ0X3RERSJ9.eyJhdWQiOiJhcGk6Ly83ZDA2YmQ4Ny02MDYxLTRmNWQtODFmMC0xMTU3Njg3Mjg4NTYiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mZjM0OGEyMi1mZDIwLTQ0OTEtYWYzOS04MzJlN2I3NjYzM2YvIiwiaWF0IjoxNTgxMDk0OTc3LCJuYmYiOjE1ODEwOTQ5NzcsImV4cCI6MTU4MTA5ODg3NywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhPQUFBQXU5T0tkbTBLYjJxeVZvRWxycE5lK1BlZTBzeG83c2NROTZaZU9vdTdnbnlXTndKc1kza2twWkFRSytSckxUTmdhYTBEK1ZtUmZRSWtlb3k2V2FrZ1dkVzJwME4xcWgxNFFwZm1JcmIzOFNrPSIsImFtciI6WyJwd2QiLCJtZmEiXSwiYXBwaWQiOiJjYzZhNjVlOC0wMTIzLTQxZTUtOWZkNy0wN2IzZjg2MjYyOGYiLCJhcHBpZGFjciI6IjAiLCJmYW1pbHlfbmFtZSI6IlNhbmRvdmFsIiwiZ2l2ZW5fbmFtZSI6IkphbHkiLCJpcGFkZHIiOiIxODcuMTk1LjE3OC4xNDgiLCJuYW1lIjoiSmFseSBTYW5kb3ZhbCIsIm9pZCI6ImU5ZWZhNmFkLTVkZmUtNDI0MS04NTM2LTJiNjEwY2MyY2Q5MiIsIm9ucHJlbV9zaWQiOiJTLTEtNS0yMS01MDc5MjE0MDUtMTA2MDI4NDI5OC04NDI5MjUyNDYtMTAyOTc1Iiwicm9sZXMiOlsiQWRtaW4iXSwic2NwIjoidXNlcl9pbXBlcnNvbmF0aW9uIiwic3ViIjoibUYzWGJnVXYtVm9UU210a2NIYllhS2ZrZ2NaYUU0N1l5RXZ6aEhsUWVmWSIsInRpZCI6ImZmMzQ4YTIyLWZkMjAtNDQ5MS1hZjM5LTgzMmU3Yjc2NjMzZiIsInVuaXF1ZV9uYW1lIjoiSmFseS5TYW5kb3ZhbEBicm9ja2dyb3VwLmNvbSIsInVwbiI6IkphbHkuU2FuZG92YWxAYnJvY2tncm91cC5jb20iLCJ1dGkiOiJWWllOeUQwd2tVaWdtaUtWTFpSZ0FBIiwidmVyIjoiMS4wIn0.gbLiwmsrC1aeH6KNi-0_Hg5feUDRwT6oztvdu-t1h6fZZEBa0toYzWRyx8Oa02rIKxhwtV5OsECUIl2RGXQur7KoxOnm7A3sDj1vqWWiIsF2WtOu1DL3Ecq8Bz5lBj8Rpv_pNBJsglV0k7kam8rY-yVcprr05xawWvB1ou8Q43s8iLWGYoyAJK-ZjixaYTCFV0gnLeYCM3IhYOaflfNEgceGvhYLcOjhl-1G2iY5NHXjE9QSsRyEAjge9qGRFOlVUNiqPcpBp3wJQTrtGlz7mXT4qgQk4iIQ0pCnBDhbCKgylyRfpYgglbLZ9C3UeDWYwG1tkZ5aF6M8kZrlkRyINQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a630a0b2-7e6d-4cc8-9c68-355db34348e5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f96821e6-401d-495c-93d6-c72cc24f6caa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ContractSet(s) Copy",
+			"item": [
+				{
+					"name": "Gets all contract sets for given contractId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e25d7afd-8686-47c3-9eba-ad1a6f1f36b9",
+								"exec": [
+									"var body = pm.response.json();",
+									"var contractsetId = body.Result[Math.floor(body.Count * Math.random())].ContractSetId;",
+									"var contractsetNumber = body.Result[body.Count-1].ContractSetNumber;",
+									"// var contractId = contract.ContractId;",
+									"// console.log (contractId)",
+									"pm.environment.set(\"ContractSet_Id\", contractsetId);",
+									"pm.environment.set(\"ContractsetNumber\", contractsetNumber + 1);",
+									"",
+									"",
+									"pm.test(\"Response time is less than 10s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"response must be valid and have a body\", function () {",
+									"     pm.expect(pm.response.code).to.be.oneOf ([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract Sets status Check\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result[0].Status).to.be.oneOf([0,1,3]); ",
+									"    //Validate status of contract 1 or 3",
+									"});",
+									"",
+									"",
+									"pm.test(\"Contract set response match with contract set id params\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.ContractSetId).to.eql();",
+									"    //Validate status of contract 1 or 2 ",
+									"});",
+									"",
+									"// pm.test(\"Contract set response match with contract set id params\", function () {",
+									"//     var jsonData = pm.response.json();",
+									"//     pm.expect(jsonData.Result[0].ContractSetId).to.be.eql(pm.environment.get(\"ContractSet_Id\"));",
+									"// });",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "timestamp",
+								"value": "{{timestampHeader}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts/{{Contract_Id}}/sets",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts",
+								"{{Contract_Id}}",
+								"sets"
+							]
+						},
+						"description": "Gets all contract sets for given contractId"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a new Contract set",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "de1dde4b-dedb-4d8f-85e3-3bc9badc10d6",
+								"exec": [
+									"pm.test(\"Response time is less than 10s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract gets created successfully\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.DateCreated).not.eql(null);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"ContractSetId\": 0,\r\n      \"ContractId\": {{Contract_Id}},\r\n      \"ContractSetNumber\": {{ContractsetNumber}},\r\n      \"Status\": 3,\r\n      \"UserCreated\": \"pepe.betus@brockgroup.com\",\r\n      \"DateCreated\": \"2020-02-14T18:06:53.4318511\",\r\n      \"UserUpdated\": \"Brianda.Delgado@brockgroup.com\",\r\n      \"DateUpdated\": \"2020-02-14T18:10:00.5122254\",\r\n      \"UserDeleted\": null,\r\n       \"DateDeleted\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts/{{Contract_Id}}/sets",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts",
+								"{{Contract_Id}}",
+								"sets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updates a contract set based on given contract set Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "009bf32a-7cb9-4525-abd5-3298eb4a5da7",
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract gets updated successfully\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.DateCreated).not.eql(null);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"ContractSetId\": {{ContractSet_Id}},\r\n      \"ContractId\": {{Contract_Id}},\r\n      \"ContractSetNumber\": {{ContractsetNumber}},\r\n      \"Status\": 0,\r\n      \"UserCreated\": \"borabora234@brockgroup.com\",\r\n      \"DateCreated\": \"2020-02-14T18:06:53.4318511\",\r\n      \"UserUpdated\": \"Brianda.Delgado@brockgroup.com\",\r\n      \"DateUpdated\": \"2020-02-14T18:10:00.5122254\",\r\n      \"UserDeleted\": null,\r\n       \"DateDeleted\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts/{{Contract_Id}}/sets/{{ContractSet_Id}}",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts",
+								"{{Contract_Id}}",
+								"sets",
+								"{{ContractSet_Id}}"
+							]
+						},
+						"description": "Updates a contract set based on given contract set Id"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an existing contractSet based on given contractSetId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "beac921d-6145-41bf-b7e8-e37971643b6f",
+								"exec": [
+									"pm.test(\"Response time is less than 1s\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(1000);",
+									"    //Validate response time is less than \"x\" secs.",
+									"});",
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200,201,202]);",
+									"     pm.response.to.be.withBody;",
+									"     pm.response.to.be.json;",
+									"    //Validate the correct status of the request/response 200 & validate if correct Json body is on the response",
+									"});",
+									"",
+									"pm.test(\"Contract gets deleted successfully\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.Result.DateCreated).not.eql(null);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \"ContractSetId\": {{ContractSet_Id}},\r\n      \"ContractId\": {{Contract_Id}},\r\n      \"ContractSetNumber\": {{ContractsetNumber}},\r\n      \"Status\": 0,\r\n      \"UserCreated\": \"pepe.beto@brockgroup.com\",\r\n      \"DateCreated\": \"2020-02-14T18:06:53.4318511\",\r\n      \"UserUpdated\": \"Brianda.Delgado@brockgroup.com\",\r\n      \"DateUpdated\": \"2020-02-14T18:10:00.5122254\",\r\n      \"UserDeleted\": null,\r\n       \"DateDeleted\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}customers/{{Customer_Id}}/contracts/{{Contract_Id}}/sets/{{ContractSet_Id}}",
+							"host": [
+								"{{base_url}}customers"
+							],
+							"path": [
+								"{{Customer_Id}}",
+								"contracts",
+								"{{Contract_Id}}",
+								"sets",
+								"{{ContractSet_Id}}"
+							]
+						},
+						"description": "Delete an existing contractSet based on given contractSetId"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5e5799fa-f5fb-4a1c-a1e2-6ab7e1165355",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set(\"timestampHeader\", new Date ());"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cde205af-3550-44d0-90b0-c32e323f02b3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
