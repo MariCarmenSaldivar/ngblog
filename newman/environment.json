@@ -1,0 +1,54 @@
+{
+	"id": "daa7eecc-7cc1-4a67-9936-9b5345a99294",
+	"name": "Brock DEV",
+	"values": [
+		{
+			"key": "base_url",
+			"value": "https://brock-bos-api-dev.azurewebsites.net/api/",
+			"enabled": true
+		},
+		{
+			"key": "timestampHeader",
+			"value": "2020-02-26T17:58:21.812Z",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhsQzBSMTJza3hOWjFXUXdtak9GXzZ0X3RERSIsImtpZCI6IkhsQzBSMTJza3hOWjFXUXdtak9GXzZ0X3RERSJ9.eyJhdWQiOiJhcGk6Ly83ZDA2YmQ4Ny02MDYxLTRmNWQtODFmMC0xMTU3Njg3Mjg4NTYiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC9mZjM0OGEyMi1mZDIwLTQ0OTEtYWYzOS04MzJlN2I3NjYzM2YvIiwiaWF0IjoxNTgyNzU0Mjk0LCJuYmYiOjE1ODI3NTQyOTQsImV4cCI6MTU4Mjc1ODE5NCwiYWNyIjoiMSIsImFpbyI6IjQyTmdZTENjdkhvTmI3SzNXM1pTeGZ1UFJ6NEhxckU1eTZsd21KcFlQMkk1dHVUc2wyUUEiLCJhbXIiOlsicHdkIl0sImFwcGlkIjoiN2QwNmJkODctNjA2MS00ZjVkLTgxZjAtMTE1NzY4NzI4ODU2IiwiYXBwaWRhY3IiOiIxIiwiZmFtaWx5X25hbWUiOiJTYW5kb3ZhbCIsImdpdmVuX25hbWUiOiJKYWx5IiwiaXBhZGRyIjoiMjAwLjMzLjI0OS4yNiIsIm5hbWUiOiJKYWx5IFNhbmRvdmFsIiwib2lkIjoiZTllZmE2YWQtNWRmZS00MjQxLTg1MzYtMmI2MTBjYzJjZDkyIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTUwNzkyMTQwNS0xMDYwMjg0Mjk4LTg0MjkyNTI0Ni0xMDI5NzUiLCJyb2xlcyI6WyJBZG1pbiJdLCJzY3AiOiJ1c2VyX2ltcGVyc29uYXRpb24iLCJzdWIiOiJtRjNYYmdVdi1Wb1RTbXRrY0hiWWFLZmtnY1phRTQ3WXlFdnpoSGxRZWZZIiwidGlkIjoiZmYzNDhhMjItZmQyMC00NDkxLWFmMzktODMyZTdiNzY2MzNmIiwidW5pcXVlX25hbWUiOiJKYWx5LlNhbmRvdmFsQGJyb2NrZ3JvdXAuY29tIiwidXBuIjoiSmFseS5TYW5kb3ZhbEBicm9ja2dyb3VwLmNvbSIsInV0aSI6IjF3ZVpDSFlIdmthNWpySjRVMW1BQUEiLCJ2ZXIiOiIxLjAifQ.kP4zwfxOnlFzi79ciBb54PtL2kKmB0eS9boJzbTjLhENBjW0NQpmTws-v9VCPe4uxFXfEU2MFBJrqJNYnFiVbXnUodoeDy8pze1l8kagSgHzlfOsx43p9CPinBZ2Oyj4ufKv2LwgB-dBi5_LMDzuzCoVQbVjEYwBQLfLv2Db1XSz_2qfy9MnyPp_XKFxiPMIvpDK7mNEt0JlrRmsPn-2o9FnvY7QUakikqu78AMtMDiXd6tSfspz2j7ILJbaGsQavoC09MX0jKIAnJTfH3Ejm9x4KNbdoKbUXLGFOhHWxpvXfabtUTYUcYkk-ZfCGiLN0XY_DVVA0YNPnUc45K9s6Q",
+			"enabled": true
+		},
+		{
+			"key": "Customer_Id",
+			"value": 423516,
+			"enabled": true
+		},
+		{
+			"key": "Contract_Id",
+			"value": 153,
+			"enabled": true
+		},
+		{
+			"key": "ContractSet_Id",
+			"value": 312,
+			"enabled": true
+		},
+		{
+			"key": "ContractsetNumber",
+			"value": 2,
+			"enabled": true
+		},
+		{
+			"key": "Ratetable_Id",
+			"value": 1052,
+			"enabled": true
+		},
+		{
+			"key": "Contact_Id",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2020-02-26T22:12:17.730Z",
+	"_postman_exported_using": "Postman/7.18.1"
+}
